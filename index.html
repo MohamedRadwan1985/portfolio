@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Radwan - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            padding: 20px 0 60px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hero / Header Main Content with Image */
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .header-text h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #ffcc00;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .header-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 250px;
+        }
+
+        .header-profile-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #ffcc00;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #ffcc00;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background-color: #e6b800;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #2a5298;
+            border: 2px solid #2a5298;
+            margin-top: 15px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2a5298;
+            color: #fff;
+        }
+
+        /* Sections General */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2a5298;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #ffcc00;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Experience Section (Timeline) */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #2a5298;
+            top: 0;
+            bottom: 0;
+            left: 30px;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 70px;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ffcc00;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .timeline-content h3 {
+            color: #2a5298;
+            margin-bottom: 5px;
+        }
+
+        .timeline-period {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .timeline-content ul li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        /* Education Section */
+        .education-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            display: flex;
+            gap: 20px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .education-icon {
+            font-size: 2rem;
+            color: #2a5298;
+        }
+
+        .education-details h3 {
+            color: #2a5298;
+            margin-bottom: 5px;
+        }
+
+        .education-period {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .education-details h4 {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .education-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: #2a5298;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Projects & Videos Layout */
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: calc(33.333% - 17px);
+            min-width: 300px;
+        }
+
+        .project-card h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        #contactForm {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            color: #2a5298;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+
+        .contact-info i {
+            color: #2a5298;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <h2 class="logo">Mohamed Radwan</h2>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-main" id="home">
+                <div class="header-text">
+                    <h1>Hi, I'm <span class="highlight">Mohamed Radwan</span></h1>
+                    <p class="subtitle">Warehouse & Logistics Management</p>
+                    <a href="#experience" class="btn-primary">View My Experience</a>
+                </div>
+                <div class="header-image">
+                    <img src="profile.jpg" onerror="this.onerror=null; this.src='profile.jpg.png';" alt="Mohamed Radwan" class="header-profile-img">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Results-driven Warehouse and Logistics Manager with over 19 years of experience in warehouse management, logistics operations, and supply chain coordination. Skilled in inventory forecasting, cost control, and resource planning. Proven ability to lead large teams, optimize logistics networks, and ensure on-time delivery across multiple regions.</p>
+                    <p>Experienced in ERP and WMS systems, RFID implementation, and logistics data analysis. Strong background in safety compliance, training and mentoring, and reverse logistics. Passionate about leveraging technology to optimize warehouse operations and improve supply chain efficiency.</p>
+                    <a href="#" class="btn-secondary">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Warehouse and Logistics Manager – Finished Products</h3>
+                        <p class="timeline-period">2010 – 2024</p>
+                        <h4>Al Jazeera Paints Company – Riyadh, Saudi Arabia</h4>
+                        <ul>
+                            <li>Supervised warehouse operations for finished products</li>
+                            <li>Implemented inventory control systems and stock management procedures</li>
+                            <li>Optimized storage utilization and reduced logistics delays</li>
+                            <li>Ensured compliance with safety standards and regulations</li>
+                            <li>Managed team performance and conducted training sessions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Warehouse and Logistics Manager</h3>
+                        <p class="timeline-period">2008 – 2010</p>
+                        <h4>MOBICA for Metal and Wooden Furniture – Egypt</h4>
+                        <ul>
+                            <li>Directed supply and distribution operations for production materials</li>
+                            <li>Managed inventory levels and implemented stock forecasting techniques</li>
+                            <li>Coordinated between procurement, production, and delivery teams to ensure smooth workflow</li>
+                            <li>Enhanced storage utilization and reduced logistics delays</li>
+                            <li>Implemented cost-saving measures in warehouse operations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Warehouse and Logistics Manager</h3>
+                        <p class="timeline-period">2005 – 2008</p>
+                        <h4>Electro-Mechanical Works Company – Egypt</h4>
+                        <ul>
+                            <li>Oversaw daily warehousing activities, inventory accuracy, and team supervision</li>
+                            <li>Implemented new safety protocols, reducing incidents by 25%</li>
+                            <li>Improved inventory tracking using manual and digital systems</li>
+                            <li>Managed receipt, storage, and dispatch of goods</li>
+                            <li>Ensured accurate record keeping and documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education & Training</h2>
+            <div class="education-content">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-details">
+                        <h3>Bachelor of Law</h3>
+                        <p class="education-period">2004</p>
+                        <h4>Menoufia University – Faculty of Law</h4>
+                        <p>Comprehensive legal education providing strong foundation in analytical thinking, problem-solving, and regulatory compliance.</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-details">
+                        <h3>Professional Training & Courses</h3>
+                        <p class="education-period">Ongoing</p>
+                        <h4>Certifications & Professional Development</h4>
+                        <ul>
+                            <li>Warehouse Management Training</li>
+                            <li>ISO Quality Standards Course</li>
+                            <li>ERP Systems Operations (SAP, Oracle)</li>
+                            <li>Occupational Safety and Health – Al Jazeera Paints Company</li>
+                            <li>RFID System Fundamentals</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Warehouse Management</h3>
+                    <p>Expert in WMS operations, inventory control, and storage optimization</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Logistics Coordination</h3>
+                    <p>Supply chain management, transportation planning, and distribution optimization</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>ERP Systems</h3>
+                    <p>Proficient in SAP and Oracle for integrated business process management</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-id-card"></i>
+                    <h3>RFID Technology</h3>
+                    <p>Implementation and management of RFID systems for inventory tracking</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safety & Compliance</h3>
+                    <p>Workplace safety protocols, regulatory compliance, and risk management</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Team Leadership</h3>
+                    <p>Training, mentoring, and managing warehouse operations teams</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Analysis</h3>
+                    <p>Logistics data analysis, performance metrics, and continuous improvement</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Reverse Logistics</h3>
+                    <p>Managing returns, repairs, and sustainable disposal processes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Data Projects & Videos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Logistics Data Analysis</h3>
+                    <p>SQL-based analysis for warehouse inventory performance and supply chain optimization.</p>
+                    <a href="https://drive.google.com/file/d/1F-2TEEbgoqGBwzpv0pydIAV5qzLoocDy/view?usp=sharing" class="btn-secondary" target="_blank">مشاهدة فيديو المستودع 1</a>
+                </div>
+                <div class="project-card">
+                    <h3>Warehouse Automation Script</h3>
+                    <p>Python script developed to automate data reporting using Requests and FastAPI.</p>
+                    <a href="https://drive.google.com/file/d/1lYSrTMxSgPePZCA41v2RkLS1eh06x20s/view?usp=sharing" class="btn-secondary" target="_blank">مشاهدة فيديو المستودع 2</a>
+                </div>
+                <div class="project-card">
+                    <h3>Warehouse Operations Video</h3>
+                    <p>A demonstration of daily warehouse activities and logistics management.</p>
+                    <a href="https://drive.google.com/file/d/1O92xikb1aJDVuQS3DoWn8epHhgbhgE1-/view?usp=sharing" class="btn-secondary" target="_blank">مشاهدة فيديو المستودع 3</a>
+                </div>
+                <div class="project-card">
+                    <h3>Technical Video 1</h3>
+                    <p>Technical videos for warehouse management and operations.</p>
+                    <a href="https://drive.google.com/file/d/1yM6Cj56mHcdHLwbrvRXRCoKpHe6p2Z0S/view?usp=sharing" class="btn-secondary" target="_blank">مشاهدة فيديو تقني 1</a>
+                </div>
+                <div class="project-card">
+                    <h3>Technical Video 2</h3>
+                    <p>Technical videos for warehouse management and operations.</p>
+                    <a href="https://drive.google.com/file/d/1yM6Cj56mHcdHLwbrvRXRCoKpHe6p2Z0S/view?usp=sharing" class="btn-secondary" target="_blank">مشاهدة فيديو تقني 2</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" required placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p><i class="fas fa-envelope"></i> mohamamradwan1973@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +20 122 480 6825</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Menoufia, Egypt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; Mohamed Radwan. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
